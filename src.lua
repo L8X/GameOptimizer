@@ -3,6 +3,10 @@
 -- For the non setfflag flag setting to work, you must execute this before the game loads --
 -- It works best in autoexec with autoattach on --
 
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
 local Rendering = settings().Rendering
 local Diagnostics = settings().Diagnostics
 local userSettings = UserSettings():GetService("UserGameSettings")
@@ -11,8 +15,8 @@ local cloneref = cloneref or function(ref)
 	return ref
 end
 
-local L = cloneref(game.lighting)
-local P = cloneref(game:FindFirstChildOfClass("Players"))
+local L = cloneref(game:GetService("Lighting"))
+local P = cloneref(game:GetService("Players"))
 
 local setfflag = setfflag or function(flag, bool)
 	game:DefineFastFlag(tostring(flag), bool)
