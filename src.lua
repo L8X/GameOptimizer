@@ -27,14 +27,16 @@ end
 
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
+local W = cloneref(game:GetService("Workspace"))
+
+pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 
 task.spawn(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end)
 	end
-	   task.wait()
-	end
+    end
 end)
 
 task.spawn(function()
@@ -46,9 +48,9 @@ end)
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
-		v.Enabled = false
+	   v.Enabled = false
 	end
-end
+    end
 end)
 
 Diagnostics.IsScriptStackTracingEnabled = false
@@ -104,7 +106,7 @@ P.PlayerAdded:Connect(function(p)
 		    pcall(function() obj.CastShadow = false end)
 		end
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
-			v.Enabled = false
+		   v.Enabled = false
 	    end
 	end
 end)
@@ -120,10 +122,10 @@ local function OnDescendantAdded(obj)
 		obj.CastShadow = false
 	end
 	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
-			obj.Enabled = false
+		obj.Enabled = false
 	end
 	if obj:IsA("MeshPart") or obj:IsA("UnionOperation") or obj:IsA("PartOperation") then
-		pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end)
+	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end)
 	    pcall(function() obj.CastShadow = false end)
 	end
 end
