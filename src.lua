@@ -48,7 +48,6 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
 		v.Enabled = false
 	end
-	task.wait()
 end
 end)
 
@@ -69,7 +68,6 @@ task.spawn(function()
 		if v:IsA("BasePart") then
 			v.CastShadow = false
 		end
-		task.wait()
 	end
 end)
 
@@ -78,7 +76,6 @@ task.spawn(function()
 		if v:IsA("BasePart") and v.Material == "Plastic" then
 			v.Material = "SmoothPlastic"
 		end
-		task.wait()
 	end
 end)
 
@@ -87,7 +84,6 @@ task.spawn(function()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			v.Enabled = false
 		end
-		task.wait()
 	end
 end)
 
@@ -107,7 +103,6 @@ P.PlayerAdded:Connect(function(p)
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			v.Enabled = false
 	    end
-		task.wait()
 	end
 end)
 end)
