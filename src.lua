@@ -3,6 +3,14 @@
 -- For the non setfflag flag setting to work, you must execute this before the game loads --
 -- It works best in autoexec with autoattach on --
 
+local setfflag = setfflag or function(flag, bool)
+	game:DefineFastFlag(tostring(flag), bool)
+end
+
+pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
+pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
+pcall(function() setfflag("DebugRenderingSetDeterministic", true) end)	
+
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -17,14 +25,6 @@ end
 
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
-
-local setfflag = setfflag or function(flag, bool)
-	game:DefineFastFlag(tostring(flag), bool)
-end
-
-pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
-pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
-pcall(function() setfflag("DebugRenderingSetDeterministic", true) end)	
 
 task.spawn(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
