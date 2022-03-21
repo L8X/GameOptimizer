@@ -15,6 +15,8 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
+repeat task.wait() until game:IsLoaded()
+
 local Rendering = settings().Rendering
 local Diagnostics = settings().Diagnostics
 local userSettings = UserSettings():GetService("UserGameSettings")
@@ -65,7 +67,7 @@ userSettings.SavedQualityLevel = "1"
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("BasePart") then
-			pcall(function() sethiddenproperty(v, "CastShadow", false) end)
+			v.CastShadow = false
 		end
 		task.wait()
 	end
@@ -74,7 +76,7 @@ end)
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("BasePart") and v.Material == "Plastic" then
-			pcall(function() sethiddenproperty(v, "Material", "SmoothPlastic") end)
+			v.Material = "SmoothPlastic"
 		end
 		task.wait()
 	end
@@ -89,15 +91,16 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
 P.PlayerAdded:Connect(function(p)
 	p.CharacterAdded:Connect(function(c)
 		for i, v in pairs(c:GetDescendants()) do
 		if v:IsA("BasePart") then
-			pcall(function() sethiddenproperty(v, "CastShadow", false) end)
+			v.CastShadow = false
 		end
 		if v:IsA("BasePart") and v.Material == "Plastic" then
-			pcall(function() sethiddenproperty(v, "Material", "SmoothPlastic") end)
-	    end
+			v.Material = "SmoothPlastic"
+	        end
 		if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 		    pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end)
 		end
@@ -108,13 +111,14 @@ P.PlayerAdded:Connect(function(p)
 	end
 end)
 end)
+end)
 	
 local function OnDescendantAdded(obj)
 	if obj:IsA("BasePart") then
-		pcall(function() sethiddenproperty(obj, "CastShadow", false) end)
+		obj.CastShadow = false
 	end
 	if obj:IsA("BasePart") and obj.Material == "Plastic" then
-			pcall(function() sethiddenproperty(v, "Material", "SmoothPlastic") end)
+		obj.Material = "SmoothPlastic"
 	end
 	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
 			obj.Enabled = false
