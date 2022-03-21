@@ -53,8 +53,8 @@ end)
 
 Diagnostics.IsScriptStackTracingEnabled = false
 Rendering.AutoFRMLevel = 1
-Rendering.EditQualityLevel = "Level03"
-Rendering.QualityLevel = "Level03"
+Rendering.EditQualityLevel = "Level01"
+Rendering.QualityLevel = "Level01"
 Rendering.ReloadAssets = true
 Rendering.MeshCacheSize = tonumber(999999999)
 Rendering.FrameRateManager = "On"
