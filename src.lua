@@ -51,8 +51,7 @@ local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
 
---- mhm workspace settings ---
-
+--- mhm... i liek workspace properties ---
 
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
