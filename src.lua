@@ -7,9 +7,31 @@ local setfflag = setfflag or function(flag, bool)
 	game:DefineFastFlag(tostring(flag), bool)
 end
 
+-- I have two sets of these because some exploits don't like the Boolean being outside of "" ---
+
+task.spawn(function()
 pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
-pcall(function() setfflag("DebugRenderingSetDeterministic", true) end)	
+pcall(function() setfflag("DebugRenderingSetDeterministic", true) end)
+pcall(function() setfflag("ThrottleDeveloperConsoleEvents", true) end)	
+pcall(function() setfflag("CharacterTaskQueueReschedule", true) end)
+pcall(function() setfflag("EnableFlushAfterPurge", true) end)
+pcall(function() setfflag("BillboardGuiDistanceStepping2", true) end)
+pcall(function() setfflag("ReduceTrussSearchDistance2", true) end)
+pcall(function() setfflag("InterpolateCullDistance", true) end)
+end)
+
+task.spawn(function()
+pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end)
+pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
+pcall(function() setfflag("DebugRenderingSetDeterministic", "true") end)
+pcall(function() setfflag("ThrottleDeveloperConsoleEvents", "true") end)	
+pcall(function() setfflag("CharacterTaskQueueReschedule", "true") end)
+pcall(function() setfflag("EnableFlushAfterPurge", "true") end)
+pcall(function() setfflag("BillboardGuiDistanceStepping2", "true") end)
+pcall(function() setfflag("ReduceTrussSearchDistance2", "true") end)
+pcall(function() setfflag("InterpolateCullDistance", "true") end)
+end)
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
@@ -29,7 +51,12 @@ local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
 
+--- mhm workspace settings ---
+
+
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
+pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
+pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 
 task.spawn(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
