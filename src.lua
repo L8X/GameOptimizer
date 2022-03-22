@@ -124,6 +124,7 @@ end)
 		
 task.spawn(function()
 L.Changed:Connect(function()
+	task.wait(0/1)
 	pcall(function() L.Outlines = false end)
 	pcall(function() L.Brightness = 2.5 end)
 	pcall(function() L.GlobalShadows = false end)
@@ -131,6 +132,7 @@ L.Changed:Connect(function()
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
+	task.wait(0/1)
     end)
 end)
 
@@ -194,7 +196,9 @@ end)
 
 task.spawn(function()
 P.PlayerAdded:Connect(function(p)
+	task.wait(0/1)
 	p.CharacterAdded:Connect(function(c)
+		task.wait(0/1)
 		for i, v in pairs(c:GetDescendants()) do
 		if v:IsA("BasePart") then
 			v.CastShadow = false
@@ -217,6 +221,7 @@ end)
 end)
 	
 local function OnDescendantAdded(obj)
+	task.wait(0/1)
 	if obj:IsA("BasePart") then
 		obj.CastShadow = false
 	end
