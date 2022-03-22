@@ -47,7 +47,7 @@ local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
 local T = cloneref(W:WaitForChild("Terrain"))
-local C = cloneref(T:FindFirstChildOfClass("Clouds"))
+local C = T:FindFirstChildOfClass("Clouds")
 
 --- mhm... i liek workspace properties ---
 
@@ -56,11 +56,13 @@ pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
 pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 
 task.spawn(function()
+pcall(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
 	end
     end
+end)
 end)
 
 task.spawn(function()
