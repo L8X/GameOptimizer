@@ -58,7 +58,7 @@ pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 task.spawn(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
-	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end)
+	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
 	end
     end
 end)
@@ -166,7 +166,7 @@ P.PlayerAdded:Connect(function(p)
 			obj.CastShadow = false
 	    end
 		if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
-		    pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end)
+		    pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 		    pcall(function() obj.CastShadow = false end)
 		end
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
@@ -189,7 +189,7 @@ local function OnDescendantAdded(obj)
 		obj.Enabled = false
 	end
 	if obj:IsA("MeshPart") or obj:IsA("UnionOperation") or obj:IsA("PartOperation") then
-	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end)
+	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 	    pcall(function() obj.CastShadow = false end)
 	end
 end
