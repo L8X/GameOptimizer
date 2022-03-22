@@ -54,6 +54,7 @@ local C = T:FindFirstChildOfClass("Clouds")
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
 pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
+pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 
 task.spawn(function()
 pcall(function()
