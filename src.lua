@@ -104,20 +104,16 @@ pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 
 task.spawn(function()
 pcall(function()
-if sethiddenproperty and gethiddenproperty then
-if tostring(gethiddenproperty(L, "Technology")) == "Future" then
+if L.Technology == "Future" then
 pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
-end
 end
 end)
 end)
 				
 task.spawn(function()
 pcall(function()
-if sethiddenproperty and gethiddenproperty then
-if tostring(gethiddenproperty(L, "Technology")) == "ShadowMap" then
+if L.Technology == "ShadowMap" then
 pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
-end
 end
 end)
 end)
