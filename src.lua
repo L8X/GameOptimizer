@@ -7,6 +7,15 @@ local setfflag = setfflag or function(flag, bool)
     game:DefineFastFlag(tostring(flag), bool)
 end
 
+local wait = function(int)
+if not int then
+   int = 0
+end
+local t = tick()
+repeat task.wait(0/1) until (tick() - t) >= int
+    return (tick() - t), t
+end
+
 -- I have two sets of these because some exploits don't like the Boolean being outside of "" ;_; ---
 
 task.spawn(function()
@@ -70,7 +79,7 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-repeat task.wait(0/1) until game:IsLoaded()
+repeat wait() until game:IsLoaded()
 
 local Rendering = settings().Rendering
 local Diagnostics = settings().Diagnostics
@@ -119,7 +128,7 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
 	end
-	task.wait(0/1)
+	wait()
     end
 end)
 end)
@@ -153,7 +162,7 @@ end)
 task.spawn(function()
 L.Changed:Connect(function(prop)
 	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" then 
-	task.wait(0/1)
+	wait()
 	pcall(function() L.Outlines = false end)
 	pcall(function() L.Brightness = 2.5 end)
 	pcall(function() L.GlobalShadows = false end)
@@ -161,7 +170,7 @@ L.Changed:Connect(function(prop)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
-	task.wait(0/1)
+	wait()
 	end
     end)
 end)
@@ -171,7 +180,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
 	   v.Enabled = false
 	end
-	task.wait(0/1)
+	wait()
     end
 end)
 
@@ -180,7 +189,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then
 	   v:Destroy()
 	end
-	task.wait(0/1)
+	wait()
     end
 end)
 
@@ -201,7 +210,7 @@ task.spawn(function()
 		if v:IsA("BasePart") then
 			v.CastShadow = false
 		end
-	        task.wait(0/1)
+	        wait()
 	end
 end)
 
@@ -211,7 +220,7 @@ task.spawn(function()
 			v.Material = "SmoothPlastic"
 			obj.CastShadow = false
 		end
-		task.wait(0/1)
+		wait()
 	end
 end)
 
@@ -220,15 +229,15 @@ task.spawn(function()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			v.Enabled = false
 		end
-		task.wait(0/1)
+		wait()
 	end
 end)
 
 task.spawn(function()
 P.PlayerAdded:Connect(function(p)
-	task.wait(0/1)
+	wait()
 	p.CharacterAdded:Connect(function(c)
-		task.wait(0/1)
+		wait()
 		for i, v in pairs(c:GetDescendants()) do
 		if v:IsA("BasePart") then
 			v.CastShadow = false
@@ -236,7 +245,7 @@ P.PlayerAdded:Connect(function(p)
 		if v:IsA("BasePart") and v.Material == "Plastic" then
 			v.Material = "SmoothPlastic"
 			obj.CastShadow = false
-	    end
+	        end
 		if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 		    pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 		    pcall(function() obj.CastShadow = false end)
@@ -244,14 +253,14 @@ P.PlayerAdded:Connect(function(p)
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 		   v.Enabled = false
 	    end
-	    task.wait(0/1)
+	    wait()
 	end
 end)
 end)
 end)
 	
 local function OnDescendantAdded(obj)
-	task.wait(0/1)
+	wait()
 	if obj:IsA("BasePart") then
 		obj.CastShadow = false
 	end
