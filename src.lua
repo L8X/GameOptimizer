@@ -4,7 +4,7 @@
 -- It works best in autoexec with autoattach on --
 
 local setfflag = setfflag or function(flag, bool)
-	game:DefineFastFlag(tostring(flag), bool)
+    game:DefineFastFlag(tostring(flag), bool)
 end
 
 -- I have two sets of these because some exploits don't like the Boolean being outside of "" ---
@@ -12,10 +12,8 @@ end
 task.spawn(function()
 pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
-pcall(function() setfflag("DebugRenderingSetDeterministic", true) end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", true) end)	
 pcall(function() setfflag("CharacterTaskQueueReschedule", true) end)
-pcall(function() setfflag("EnableFlushAfterPurge", true) end)
 pcall(function() setfflag("BillboardGuiDistanceStepping2", true) end)
 pcall(function() setfflag("ReduceTrussSearchDistance2", true) end)
 pcall(function() setfflag("InterpolateCullDistance", true) end)
@@ -24,10 +22,8 @@ end)
 task.spawn(function()
 pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
-pcall(function() setfflag("DebugRenderingSetDeterministic", "true") end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", "true") end)	
 pcall(function() setfflag("CharacterTaskQueueReschedule", "true") end)
-pcall(function() setfflag("EnableFlushAfterPurge", "true") end)
 pcall(function() setfflag("BillboardGuiDistanceStepping2", "true") end)
 pcall(function() setfflag("ReduceTrussSearchDistance2", "true") end)
 pcall(function() setfflag("InterpolateCullDistance", "true") end)
@@ -69,6 +65,8 @@ task.spawn(function()
 	pcall(function() sethiddenproperty(L, "Outlines", false) end)
 	pcall(function() sethiddenproperty(L, "Brightness", 3) end)
 	pcall(function() sethiddenproperty(L, "GlobalShadows", false) end)
+	pcall(function() sethiddenproperty(L, "EnvironmentDiffuseScale", 0) end)
+	pcall(function() sethiddenproperty(L, "EnvironmentSpecularScale", 0) end)	
 end)
 
 task.spawn(function()
