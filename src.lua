@@ -12,7 +12,7 @@ if not int then
    int = 0
 end
 local t = tick()
-repeat task.wait(0/1) until (tick() - t) >= int
+repeat task.wait(0) until (tick() - t) >= int
     return (tick() - t), t
 end
 
