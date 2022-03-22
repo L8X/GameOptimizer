@@ -61,14 +61,14 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-repeat task.wait() until game:IsLoaded()
+repeat task.wait(0/1) until game:IsLoaded()
 
 local Rendering = settings().Rendering
 local Diagnostics = settings().Diagnostics
 local userSettings = UserSettings():GetService("UserGameSettings")
 
 local cloneref = cloneref or function(ref)
-	return ref
+    return ref
 end
 
 local L = cloneref(game:GetService("Lighting"))
@@ -91,6 +91,7 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
 	end
+	task.wait(0/1)
     end
 end)
 end)
@@ -138,6 +139,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
 	   v.Enabled = false
 	end
+	task.wait(0/1)
     end
 end)
 
@@ -146,6 +148,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then
 	   v:Destroy()
 	end
+	task.wait(0/1)
     end
 end)
 
@@ -166,6 +169,7 @@ task.spawn(function()
 		if v:IsA("BasePart") then
 			v.CastShadow = false
 		end
+	        task.wait(0/1)
 	end
 end)
 
@@ -175,6 +179,7 @@ task.spawn(function()
 			v.Material = "SmoothPlastic"
 			obj.CastShadow = false
 		end
+		task.wait(0/1)
 	end
 end)
 
@@ -183,6 +188,7 @@ task.spawn(function()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			v.Enabled = false
 		end
+		task.wait(0/1)
 	end
 end)
 
@@ -204,6 +210,7 @@ P.PlayerAdded:Connect(function(p)
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 		   v.Enabled = false
 	    end
+	    task.wait(0/1)
 	end
 end)
 end)
@@ -227,5 +234,7 @@ local function OnDescendantAdded(obj)
 end
 
 game.DescendantAdded:Connect(function(v)
+	task.wait(0/1)
 	task.spawn(OnDescendantAdded, v)
+	task.wait(0/1)
 end)
