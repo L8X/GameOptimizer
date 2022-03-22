@@ -10,9 +10,7 @@ end
 -- I have two sets of these because some exploits don't like the Boolean being outside of "" ;_; ---
 
 task.spawn(function()
---pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) 
--- Using manual checks now for this
-
+--pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", true) end)	
 pcall(function() setfflag("CharacterTaskQueueReschedule", true) end)
@@ -36,9 +34,7 @@ pcall(function() setfflag("AlwaysPutSoundsOnDiskWhenLowOnMemory", true) end)
 end)
 
 task.spawn(function()
---pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) 
--- Using manual checks now for this 
-
+--pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", "true") end)	
 pcall(function() setfflag("CharacterTaskQueueReschedule", "true") end)
@@ -64,8 +60,8 @@ end)
 task.spawn(function()
 pcall(function() 
 if not sethiddenproperty and not gethiddenproperty then
-pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true)
-pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true")
+pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
+pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end)
 end
 end)
 end)
