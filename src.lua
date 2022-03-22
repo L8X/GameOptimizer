@@ -7,7 +7,7 @@ local setfflag = setfflag or function(flag, bool)
     game:DefineFastFlag(tostring(flag), bool)
 end
 
--- I have two sets of these because some exploits don't like the Boolean being outside of "" ---
+-- I have two sets of these because some exploits don't like the Boolean being outside of "" ;_; ---
 
 task.spawn(function()
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) 
