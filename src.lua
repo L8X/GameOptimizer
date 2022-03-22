@@ -26,6 +26,7 @@ pcall(function() setfflag("HumanoidParallelFasterSafeCofmUpdate", true) end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor", true) end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor2", true) end)
 pcall(function() setfflag("HumanoidDeferredSyncFunction5", true) end)
+pcall(function() setfflag("EnableBackgroundModeWhenInactive", true) end)
 end)
 
 task.spawn(function()
@@ -45,6 +46,7 @@ pcall(function() setfflag("HumanoidParallelFasterSafeCofmUpdate", "true") end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor", "true") end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor2", "true") end)
 pcall(function() setfflag("HumanoidDeferredSyncFunction5", "true") end)
+pcall(function() setfflag("EnableBackgroundModeWhenInactive", "true") end)		
 end)
 
 if not game:IsLoaded() then
