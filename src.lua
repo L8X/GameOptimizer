@@ -123,7 +123,8 @@ end)
 end)
 		
 task.spawn(function()
-L.Changed:Connect(function()
+L.Changed:Connect(function(prop)
+	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" then 
 	task.wait(0/1)
 	pcall(function() L.Outlines = false end)
 	pcall(function() L.Brightness = 2.5 end)
@@ -133,6 +134,7 @@ L.Changed:Connect(function()
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	task.wait(0/1)
+	end
     end)
 end)
 
