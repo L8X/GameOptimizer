@@ -46,6 +46,8 @@ end
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
+local T = cloneref(W:WaitForChild("Terrain"))
+local C = cloneref(T:FindFirstChildOfClass("Clouds"))
 
 --- mhm... i liek workspace properties ---
 
@@ -71,6 +73,22 @@ task.spawn(function()
 	pcall(function() L.FogStart = 0 end)
 end)
 
+task.spawn(function()
+pcall(function()
+if C ~= nil then
+pcall(function() sethiddenproperty(C, "Enabled", false) end)
+end
+end)
+end)
+
+task.spawn(function()
+T.ChildAdded:Connect(function(v)
+if v:IsA("Clouds") then
+pcall(function() sethiddenproperty(v, "Enabled", false)	end)			
+end
+end)
+end)
+		
 task.spawn(function()
 L.Changed:Connect(function()
 	pcall(function() L.Outlines = false end)
