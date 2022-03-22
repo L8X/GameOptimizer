@@ -98,9 +98,21 @@ pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 
 task.spawn(function()
-pcall(function() 
+pcall(function()
+if sethiddenproperty and gethiddenproperty then
 if tostring(gethiddenproperty(L, "Technology")) == "Future" then
-pcall(function() sethiddenproperty(L, "Technology", "ShadowMap") end)
+pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
+end
+end
+end)
+end)
+				
+task.spawn(function()
+pcall(function()
+if sethiddenproperty and gethiddenproperty then
+if tostring(gethiddenproperty(L, "Technology")) == "ShadowMap" then
+pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
+end
 end
 end)
 end)
