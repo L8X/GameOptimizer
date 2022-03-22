@@ -79,6 +79,14 @@ for i, v in pairs(L:GetDescendants()) do
     end
 end)
 
+task.spawn(function()
+for i, v in pairs(L:GetDescendants()) do
+	if v:IsA("Atmosphere") then
+	   v:Destroy()
+	end
+    end
+end)
+
 Diagnostics.IsScriptStackTracingEnabled = false
 Rendering.AutoFRMLevel = 1
 Rendering.EditQualityLevel = "Level01"
