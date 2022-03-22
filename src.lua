@@ -142,7 +142,7 @@ end)
 
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
-	if v:IsA("Atmosphere") then
+	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then
 	   v:Destroy()
 	end
     end
