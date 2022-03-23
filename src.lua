@@ -21,6 +21,7 @@ end
 task.spawn(function()
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
+pcall(function() setfflag("DebugEnableInterpThrottle", true) end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", true) end)
 pcall(function() setfflag("NewRunServiceSignals", true) end)
 pcall(function() setfflag("AnimationTrackStepFix", true) end)
@@ -64,6 +65,7 @@ end)
 task.spawn(function()
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
+pcall(function() setfflag("DebugEnableInterpThrottle", "true") end)
 pcall(function() setfflag("ThrottleDeveloperConsoleEvents", "true") end)
 pcall(function() setfflag("NewRunServiceSignals", "true") end)
 pcall(function() setfflag("AnimationTrackStepFix", "true") end)
@@ -135,17 +137,23 @@ local C = T:FindFirstChildOfClass("Clouds")
 
 --- mhm... i liek workspace properties ---
 
+task.spawn(function()
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 pcall(function() sethiddenproperty(W, "ClientAnimatorThrottling", "Enabled") end)
 pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
 pcall(function() sethiddenproperty(W, "MeshPartHeadsAndAccessories", "Disabled") end)
+pcall(function() sethiddenproperty(W, "HumanoidOnlySetCollisionsOnStateChange", "Enabled") end)
+end)
 
+task.spawn(function()
 pcall(function() W.LevelOfDetail = "Disabled" end)
 pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 pcall(function() W.InterpolationThrottling = "Enabled" end)
+pcall(function() W.HumanoidOnlySetCollisionsOnStateChange = "Enabled" end)
 pcall(function() W:SetMeshPartHeadsAndAccessories(false) end)
 pcall(function() W:SetPhysicsThrottleEnabled(true) end)
-				
+end)
+
 task.spawn(function()
 pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
 end)
