@@ -152,6 +152,11 @@ end)
 end)
 
 task.spawn(function()
+pcall(function() T.Decoration = false end)
+pcall(function() sethiddenproperty(T, "Decoration", false) end)
+end)
+
+task.spawn(function()
 L.ChildAdded:Connect(function(v)
 if v:IsA("PostEffect") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)
