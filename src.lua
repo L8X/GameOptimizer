@@ -19,6 +19,7 @@ end
 -- I have two sets of these because some exploits don't like the Boolean being outside of "" ;_; ---
 
 task.spawn(function()
+if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash fix
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
 pcall(function() setfflag("DebugEnableInterpThrottle", true) end)
@@ -66,9 +67,11 @@ pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", true) end)
 pcall(function() setfflag("DynamicallyMoveSoundStorageLocationOnMemoryNotification", true) end)
 pcall(function() setfflag("TryCacheAndReuseVideoAssets", true) end)
 pcall(function() setfflag("AlwaysPutSoundsOnDiskWhenLowOnMemory", true) end)
+end
 end)
 
 task.spawn(function()
+if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash fix
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this 
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
 pcall(function() setfflag("DebugEnableInterpThrottle", "true") end)
@@ -116,11 +119,12 @@ pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", "true") end)
 pcall(function() setfflag("DynamicallyMoveSoundStorageLocationOnMemoryNotification", "true") end)
 pcall(function() setfflag("TryCacheAndReuseVideoAssets", "true") end)
 pcall(function() setfflag("AlwaysPutSoundsOnDiskWhenLowOnMemory", "true") end)
+end
 end)
 
 task.spawn(function()
 pcall(function() 
-if not sethiddenproperty and not gethiddenproperty then
+if not sethiddenproperty and not gethiddenproperty and not game:GetService("UserInputService").TouchEnabled then
 pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end)
 pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end)
 end
