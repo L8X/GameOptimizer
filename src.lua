@@ -114,6 +114,7 @@ pcall(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
+           pcall(function() v.CastShadow = false end)
 	end
 	wait()
     end
@@ -180,7 +181,7 @@ end)
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
-	   v.Enabled = false
+	   pcall(function() v.Enabled = false end)
 	end
 	wait()
     end
@@ -188,8 +189,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
-	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then
-	   v:Destroy()
+	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
+	   pcall(function() v:Destroy() end)
 	end
 	wait()
     end
@@ -210,7 +211,7 @@ pcall(function() userSettings.SavedQualityLevel = "3" end)
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("BasePart") then
-			v.CastShadow = false
+		    pcall(function() v.CastShadow = false end)
 		end
 	        wait()
 	end
@@ -219,8 +220,8 @@ end)
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("BasePart") and v.Material == "Plastic" then
-			v.Material = "SmoothPlastic"
-			obj.CastShadow = false
+			pcall(function() v.Material = "SmoothPlastic" end)
+			pcall(function() v.CastShadow = false end)
 		end
 		wait()
 	end
@@ -229,7 +230,7 @@ end)
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
-			v.Enabled = false
+			pcall(function() v.Enabled = false end)
 		end
 		wait()
 	end
@@ -242,18 +243,18 @@ P.PlayerAdded:Connect(function(p)
 		wait()
 		for i, v in pairs(c:GetDescendants()) do
 		if v:IsA("BasePart") then
-			v.CastShadow = false
+			pcall(function() v.CastShadow = false end)
 		end
 		if v:IsA("BasePart") and v.Material == "Plastic" then
-			v.Material = "SmoothPlastic"
-			obj.CastShadow = false
+			pcall(function() v.Material = "SmoothPlastic" end)
+			pcall(function() obj.CastShadow = false end)
 	        end
 		if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
 		    pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 		    pcall(function() obj.CastShadow = false end)
 		end
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
-		   v.Enabled = false
+		   pcall(function() v.Enabled = false end)
 	    end
 	    wait()
 	end
@@ -264,14 +265,14 @@ end)
 local function OnDescendantAdded(obj)
 	wait()
 	if obj:IsA("BasePart") then
-		obj.CastShadow = false
+		pcall(function() obj.CastShadow = false end)
 	end
 	if obj:IsA("BasePart") and obj.Material == "Plastic" then
-		obj.Material = "SmoothPlastic"
-		obj.CastShadow = false
+		pcall(function() obj.Material = "SmoothPlastic" end)
+		pcall(function() obj.CastShadow = false end)
 	end
 	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
-		obj.Enabled = false
+		pcall(function() obj.Enabled = false end)
 	end
 	if obj:IsA("MeshPart") or obj:IsA("UnionOperation") or obj:IsA("PartOperation") then
 	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
@@ -280,5 +281,5 @@ local function OnDescendantAdded(obj)
 end
 
 game.DescendantAdded:Connect(function(v)
-	task.spawn(OnDescendantAdded, v)
+task.spawn(OnDescendantAdded, v)
 end)
