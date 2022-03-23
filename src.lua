@@ -380,6 +380,7 @@ local function SetCastShadow()
         end)
    wait()
 end
+wait()
 for _, basepart in ipairs(baseparts) do	
     pcall(function() basepart.CastShadow = false end)
 end
@@ -387,7 +388,9 @@ end
 
 
 game.DescendantAdded:Connect(function(v)
+wait()
 task.spawn(OnDescendantAdded, v)
 wait()
 task.spawn(SetCastShadow)
+wait()
 end)
