@@ -98,9 +98,12 @@ local C = T:FindFirstChildOfClass("Clouds")
 --- mhm... i liek workspace properties ---
 
 pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
+pcall(function() sethiddenproperty(W, "ClientAnimatorThrottling", "Enabled") end)
 pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
+
+pcall(function() W.LevelOfDetail = "Disabled" end)
 pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
-pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
+pcall(function() W.InterpolationThrottling = "Enabled" end)
 				
 task.spawn(function()
 pcall(function() sethiddenproperty(L, "Technology", "Voxel") end)
@@ -133,6 +136,7 @@ task.spawn(function()
 pcall(function()
 if C ~= nil then
 pcall(function() sethiddenproperty(C, "Enabled", false) end)
+pcall(function() C.Enabled = false end)
 end
 end)
 end)
@@ -140,7 +144,8 @@ end)
 task.spawn(function()
 T.ChildAdded:Connect(function(v)
 if v:IsA("Clouds") then
-pcall(function() sethiddenproperty(v, "Enabled", false)	end)			
+pcall(function() sethiddenproperty(v, "Enabled", false)	end)	
+pcall(function() v.Enabled = false end)
 end
 end)
 end)
@@ -148,7 +153,8 @@ end)
 task.spawn(function()
 L.ChildAdded:Connect(function(v)
 if v:IsA("PostEffect") then
-pcall(function() sethiddenproperty(v, "Enabled", false)	end)			
+pcall(function() sethiddenproperty(v, "Enabled", false)	end)
+pcall(function() v.Enabled = false end)
 end
 end)
 end)
@@ -189,17 +195,17 @@ for i, v in pairs(L:GetDescendants()) do
     end
 end)
 
-Diagnostics.IsScriptStackTracingEnabled = false
-Rendering.AutoFRMLevel = 1
-Rendering.EditQualityLevel = "Level01"
-Rendering.QualityLevel = "Level01"
-Rendering.ReloadAssets = true
-Rendering.MeshCacheSize = tonumber(999999999)
-Rendering.FrameRateManager = "On"
-Rendering.ExportMergeByMaterial = true
-Rendering.EnableFRM = true
-userSettings.GraphicsQualityLevel = 1
-userSettings.SavedQualityLevel = "1"
+pcall(function() Diagnostics.IsScriptStackTracingEnabled = false end)
+pcall(function() Rendering.AutoFRMLevel = 1 end)
+pcall(function() Rendering.EditQualityLevel = "Level01" end)
+pcall(function() Rendering.QualityLevel = "Level01" end)
+pcall(function() Rendering.ReloadAssets = true end)
+pcall(function() Rendering.MeshCacheSize = tonumber(999999999) end)
+pcall(function() Rendering.FrameRateManager = "On" end)
+pcall(function() Rendering.ExportMergeByMaterial = true end)
+pcall(function() Rendering.EnableFRM = true end)
+pcall(function() userSettings.GraphicsQualityLevel = 3 end)
+pcall(function() userSettings.SavedQualityLevel = "3" end)
 
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
