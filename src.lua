@@ -181,7 +181,7 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	   --pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
            pcall(function() v.CastShadow = false end)
 	end
-	--wait()
+	wait()
     end
 end)
 end)
@@ -253,7 +253,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
 	   pcall(function() v.Enabled = false end)
 	end
-	--wait()
+	wait()
     end
 end)
 
@@ -263,7 +263,7 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	end
-	--wait()
+	wait()
     end
 end)
 
@@ -272,7 +272,7 @@ for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
 	   pcall(function() v:Destroy() end)
 	end
-	--wait()
+	wait()
     end
 end)
 
@@ -293,7 +293,7 @@ task.spawn(function()
 		if v:IsA("BasePart") then
 		    pcall(function() v.CastShadow = false end)
 		end
-	      -- wait()
+	        wait()
 	end
 end)
 
@@ -303,7 +303,7 @@ task.spawn(function()
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() v.CastShadow = false end)
 		end
-		--wait()
+		wait()
 	end
 end)
 
@@ -312,7 +312,7 @@ task.spawn(function()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			pcall(function() v.Enabled = false end)
 		end
-		--wait()
+		wait()
 	end
 end)
 
@@ -340,7 +340,7 @@ P.PlayerAdded:Connect(function(p)
 	          pcall(function() v.LevelOfDetail = "Disabled" end)
 	          pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	        end
-	    --wait()
+	    wait()
 	end
 end)
 end)
