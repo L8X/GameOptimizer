@@ -171,7 +171,7 @@ task.spawn(function()
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
-	pcall(function() L.ShadowSoftness = 0.2 end)
+	pcall(function() L.ShadowSoftness = 1 end)
 end)
 
 task.spawn(function()
@@ -218,7 +218,7 @@ L.Changed:Connect(function(prop)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
-	pcall(function() L.ShadowSoftness = 0.2 end)
+	pcall(function() L.ShadowSoftness = 1 end)
 	wait()
 	end
     end)
@@ -228,6 +228,16 @@ task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("PostEffect") then 
 	   pcall(function() v.Enabled = false end)
+	end
+	wait()
+    end
+end)
+
+task.spawn(function()
+for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+	if v:IsA("Model") then 
+	   pcall(function() v.LevelOfDetail = "Disabled" end)
+	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	end
 	wait()
     end
@@ -301,7 +311,11 @@ P.PlayerAdded:Connect(function(p)
 		end
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 		   pcall(function() v.Enabled = false end)
-	    end
+	        end
+		if v:IsA("Model") then 
+	          pcall(function() v.LevelOfDetail = "Disabled" end)
+	          pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
+	        end
 	    wait()
 	end
 end)
@@ -323,6 +337,10 @@ local function OnDescendantAdded(obj)
 	if obj:IsA("MeshPart") or obj:IsA("UnionOperation") or obj:IsA("PartOperation") then
 	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 	    pcall(function() obj.CastShadow = false end)
+	end
+	if v:IsA("Model") then 
+	   pcall(function() v.LevelOfDetail = "Disabled" end)
+	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	end
 end
 
