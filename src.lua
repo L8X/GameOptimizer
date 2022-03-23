@@ -261,8 +261,8 @@ pcall(function() Rendering.MeshCacheSize = tonumber(999999999) end)
 pcall(function() Rendering.FrameRateManager = "On" end)
 pcall(function() Rendering.ExportMergeByMaterial = true end)
 pcall(function() Rendering.EnableFRM = true end)
-pcall(function() userSettings.GraphicsQualityLevel = 3 end)
-pcall(function() userSettings.SavedQualityLevel = "3" end)
+pcall(function() userSettings.GraphicsQualityLevel = 1 end)
+pcall(function() userSettings.SavedQualityLevel = "1" end)
 
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
