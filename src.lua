@@ -323,7 +323,6 @@ end)
 end)
 	
 local function OnDescendantAdded(obj)
-	wait()
 	if obj:IsA("BasePart") then
 		pcall(function() obj.CastShadow = false end)
 	end
