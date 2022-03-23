@@ -373,21 +373,15 @@ getgenv().baseparts = baseparts
 
 local function SetCastShadow()
     for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
-        pcall(function()
         if v:IsA("BasePart") then
-           v.CastShadow = false
-        end
-	wait()
-        end)
-   wait()
-end
+           pcall(function() v.CastShadow = false end)
+	end
+	end
 end
 
+SetCastShadow()
 
 game.DescendantAdded:Connect(function(v)
-wait()
 task.spawn(OnDescendantAdded, v)
-wait()
-task.spawn(SetCastShadow)
 wait()
 end)
