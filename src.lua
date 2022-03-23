@@ -342,6 +342,7 @@ end)
 end)
 	
 local function OnDescendantAdded(obj)
+	wait()
 	if obj:IsA("BasePart") then
 		pcall(function() obj.CastShadow = false end)
 	end
@@ -363,7 +364,6 @@ local function OnDescendantAdded(obj)
 end
 
 game.DescendantAdded:Connect(function(v)
-wait()
 task.spawn(OnDescendantAdded, v)
 wait()
 end)
