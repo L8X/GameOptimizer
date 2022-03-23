@@ -372,14 +372,21 @@ local baseparts = {}
 getgenv().baseparts = baseparts
 
 local function SetCastShadow()
-    for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
-        if v:IsA("BasePart") then
-           pcall(function() v.CastShadow = false end)
-	end
+	for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
+		if v:IsA("BasePart") then
+			pcall(function() v.CastShadow = false end)
+		end
 	end
 end
 
-SetCastShadow()
+local f = coroutine.create(SetCastShadow)
+task.spawn(f)
+
+coroutine.resume(coroutine.create(function()
+while wait(60) do
+task.spawn(f)
+end
+end))
 
 game.DescendantAdded:Connect(function(v)
 task.spawn(OnDescendantAdded, v)
