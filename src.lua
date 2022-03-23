@@ -361,7 +361,7 @@ local function OnDescendantAdded(obj)
 	    pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
 	    pcall(function() obj.CastShadow = false end)
 	end
-	if v:IsA("Model") then 
+	if obj:IsA("Model") then 
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	end
