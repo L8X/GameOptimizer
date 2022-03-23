@@ -376,6 +376,7 @@ local function SetCastShadow()
 		if v:IsA("BasePart") then
 			pcall(function() v.CastShadow = false end)
 		end
+		wait()
 	end
 end
 
