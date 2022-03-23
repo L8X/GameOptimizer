@@ -374,7 +374,9 @@ getgenv().baseparts = baseparts
 local function SetCastShadow()
 	for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
 		if v:IsA("BasePart") then
+			if v.CastShadow then
 			pcall(function() v.CastShadow = false end)
+			end
 		end
 		wait()
 	end
