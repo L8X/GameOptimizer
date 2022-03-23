@@ -363,5 +363,7 @@ local function OnDescendantAdded(obj)
 end
 
 game.DescendantAdded:Connect(function(v)
+wait()
 task.spawn(OnDescendantAdded, v)
+wait()
 end)
