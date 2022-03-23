@@ -367,7 +367,27 @@ local function OnDescendantAdded(obj)
 	end
 end
 
+
+local baseparts = {}
+getgenv().baseparts = baseparts
+
+local function SetCastShadow()
+    for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
+        pcall(function()
+        if v:IsA("BasePart") then
+           table.insert(baseparts, v)
+        end
+        end)
+   wait()
+end
+for _, basepart in ipairs(baseparts) do	
+    pcall(function() basepart.CastShadow = false end)
+end
+end
+
+
 game.DescendantAdded:Connect(function(v)
 task.spawn(OnDescendantAdded, v)
 wait()
+task.spawn(SetCastShadow)
 end)
