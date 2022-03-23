@@ -372,22 +372,14 @@ local baseparts = {}
 getgenv().baseparts = baseparts
 
 local function SetCastShadow()
-wait()
     for i, v in ipairs(getinstances and getinstances() or game:GetDescendants()) do
-	wait()
         pcall(function()
         if v:IsA("BasePart") then
-           table.insert(baseparts, v)
+           v.CastShadow = false
         end
 	wait()
         end)
    wait()
-end
-wait()
-for _, basepart in ipairs(baseparts) do
-    wait()
-    pcall(function() basepart.CastShadow = false end)
-    wait()
 end
 end
 
