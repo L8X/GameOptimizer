@@ -265,7 +265,7 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
     end
 end)
 
---[[
+
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
@@ -273,7 +273,6 @@ for i, v in pairs(L:GetDescendants()) do
 	end
     end
 end)
-]]--
 
 pcall(function() Diagnostics.IsScriptStackTracingEnabled = false end)
 pcall(function() Rendering.AutoFRMLevel = 1 end)
