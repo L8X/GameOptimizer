@@ -177,8 +177,8 @@ end)
 task.spawn(function()
 pcall(function()
 for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
-	if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
-	   --pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change? Odd. 
+	if v:IsA("MeshPart") then
+	   pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
            pcall(function() v.CastShadow = false end)
 	end
 	wait()
@@ -324,8 +324,8 @@ P.PlayerAdded:Connect(function(p)
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() obj.CastShadow = false end)
 	        end
-		if v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("PartOperation") then
-		    --pcall(function() sethiddenproperty(v, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
+		if v:IsA("MeshPart") then
+		    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
 		    pcall(function() obj.CastShadow = false end)
 		end
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
@@ -353,8 +353,8 @@ local function OnDescendantAdded(obj)
 	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
 		pcall(function() obj.Enabled = false end)
 	end
-	if obj:IsA("MeshPart") or obj:IsA("UnionOperation") or obj:IsA("PartOperation") then
-	    --pcall(function() sethiddenproperty(obj, "RenderFidelity", Enum.RenderFidelity.Performance) end) -- There's messages saying it can't be changed but the property does change?
+	if obj:IsA("MeshPart") then
+	    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
 	    pcall(function() obj.CastShadow = false end)
 	end
 	if obj:IsA("Model") then 
