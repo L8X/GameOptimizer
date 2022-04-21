@@ -148,7 +148,8 @@ end
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
-local T = cloneref(W:WaitForChild("Terrain"))
+wait()
+local T = cloneref(W.Terrain)
 local C = T:FindFirstChildOfClass("Clouds")
 
 --- mhm... i liek workspace properties ---
@@ -269,6 +270,7 @@ end)
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
+	   pcall(function() v:Remove() end)
 	   pcall(function() v:Destroy() end)
 	end
     end
