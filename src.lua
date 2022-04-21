@@ -8,7 +8,7 @@ local setfflag = setfflag or function(flag, bool)
 end
 
 local setfint = setfflag or function(flag, int)
-    game:DefineFastInt(tostring(flag), tonumber(int)
+    game:DefineFastInt(tostring(flag), tonumber(int))
 end
 
 local wait = function(int)
