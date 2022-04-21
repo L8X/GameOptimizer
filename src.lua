@@ -7,6 +7,10 @@ local setfflag = setfflag or function(flag, bool)
     game:DefineFastFlag(tostring(flag), bool)
 end
 
+local setfint = setfflag or function(flag, int)
+    game:DefineFastInt(tostring(flag), tonumber(int)
+end
+
 local wait = function(int)
 if not int then
    int = 0
@@ -61,8 +65,12 @@ pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", true) end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor", true) end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor2", true) end)
 pcall(function() setfflag("HumanoidDeferredSyncFunction5", true) end)
+pcall(function() setfflag("OptimizeNumUpdateEntityCalls6", true) end)
+pcall(function() setfflag("AnimatorLodOptOutPhase", true) end)
+pcall(function() setfflag("RigidBodyLazyUpdating", true) end)
 pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", true) end)
 pcall(function() setfflag("EnableBackgroundModeWhenInactive", true) end) -- Sometimes breaks Voice Chat after a while
+pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", 100) end)
 pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", true) end)
 pcall(function() setfflag("DynamicallyMoveSoundStorageLocationOnMemoryNotification", true) end)
 pcall(function() setfflag("TryCacheAndReuseVideoAssets", true) end)
@@ -113,8 +121,12 @@ pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", "true") end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor", "true") end)
 pcall(function() setfflag("HumanoidParallelFixTickleFloor2", "true") end)
 pcall(function() setfflag("HumanoidDeferredSyncFunction5", "true") end)
+pcall(function() setfflag("OptimizeNumUpdateEntityCalls6", "true") end)	
+pcall(function() setfflag("AnimatorLodOptOutPhase", "true") end)
+pcall(function() setfflag("RigidBodyLazyUpdating", "true") end)
 pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", "true") end)
 pcall(function() setfflag("EnableBackgroundModeWhenInactive", "true") end)  -- Sometimes breaks Voice Chat after a while
+pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", "100") end)
 pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", "true") end)
 pcall(function() setfflag("DynamicallyMoveSoundStorageLocationOnMemoryNotification", "true") end)
 pcall(function() setfflag("TryCacheAndReuseVideoAssets", "true") end)
