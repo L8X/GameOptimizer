@@ -337,21 +337,17 @@ P.PlayerAdded:Connect(function(p)
 		if v:IsA("BasePart") then
 			pcall(function() v.CastShadow = false end)
 		end
-		wait()
 		if v:IsA("BasePart") and v.Material == "Plastic" then
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() obj.CastShadow = false end)
 	        end
-		wait()
 		if v:IsA("MeshPart") then
 		    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
 		    pcall(function() obj.CastShadow = false end)
 		end
-		wait()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 		   pcall(function() v.Enabled = false end)
 	        end
-		wait()
 		if v:IsA("Model") then 
 	          pcall(function() v.LevelOfDetail = "Disabled" end)
 	          pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
@@ -359,9 +355,7 @@ P.PlayerAdded:Connect(function(p)
 	    wait()
 	end
 end)
-wait()
 end)
-wait()
 end)
 	
 local function OnDescendantAdded(obj)
@@ -369,21 +363,17 @@ local function OnDescendantAdded(obj)
 	if obj:IsA("BasePart") then
 		pcall(function() obj.CastShadow = false end)
 	end
-	wait()
 	if obj:IsA("BasePart") and obj.Material == "Plastic" then
 		pcall(function() obj.Material = "SmoothPlastic" end)
 		pcall(function() obj.CastShadow = false end)
 	end
-	wait()
 	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
 		pcall(function() obj.Enabled = false end)
 	end
-	wait()
 	if obj:IsA("MeshPart") then
 	    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
 	    pcall(function() obj.CastShadow = false end)
 	end
-	wait()
 	if obj:IsA("Model") then 
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
