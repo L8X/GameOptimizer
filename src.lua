@@ -162,7 +162,6 @@ end
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
-wait()
 local T = cloneref(W.Terrain)
 local C = T:FindFirstChildOfClass("Clouds")
 
@@ -196,7 +195,6 @@ for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
 	   pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
            pcall(function() v.CastShadow = false end)
 	end
-	wait()
     end
 end)
 end)
@@ -207,7 +205,7 @@ task.spawn(function()
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-        pcall(function() L.FogEnd = 10000000 end) 
+    pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -248,17 +246,15 @@ end)
 task.spawn(function()
 L.Changed:Connect(function(prop)
 	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" then 
-	wait()
 	pcall(function() L.Outlines = false end)
 	pcall(function() L.Brightness = 2 end)
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-        pcall(function() L.FogEnd = 10000000 end) 
+    pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
-	wait()
 	end
     end)
 end)
@@ -307,7 +303,6 @@ task.spawn(function()
 		if v:IsA("BasePart") then
 		    pcall(function() v.CastShadow = false end)
 		end
-	        wait()
 	end
 end)
 
@@ -317,7 +312,6 @@ task.spawn(function()
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() v.CastShadow = false end)
 		end
-		wait()
 	end
 end)
 
@@ -326,7 +320,6 @@ task.spawn(function()
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
 			pcall(function() v.Enabled = false end)
 		end
-		wait()
 	end
 end)
 
@@ -352,14 +345,12 @@ P.PlayerAdded:Connect(function(p)
 	          pcall(function() v.LevelOfDetail = "Disabled" end)
 	          pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	        end
-	    wait()
 	end
 end)
 end)
 end)
 	
 local function OnDescendantAdded(obj)
-	wait()
 	if obj:IsA("BasePart") then
 		pcall(function() obj.CastShadow = false end)
 	end
@@ -378,11 +369,8 @@ local function OnDescendantAdded(obj)
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
 	end
-	wait()
 end
 
 game.DescendantAdded:Connect(function(v)
-wait()
 task.spawn(OnDescendantAdded, v)
-wait()
 end)
