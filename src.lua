@@ -190,7 +190,7 @@ end)
 
 task.spawn(function()
 pcall(function()
-for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+for i, v in pairs(game:GetDescendants()) do
 	if v:IsA("MeshPart") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
            pcall(function() v.CastShadow = false end)
@@ -205,7 +205,7 @@ task.spawn(function()
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-        pcall(function() L.FogEnd = 10000000 end) 
+    pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -220,13 +220,11 @@ end
 end)
 end)
 
-task.spawn(function()
 T.ChildAdded:Connect(function(v)
 if v:IsA("Clouds") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)	
 pcall(function() v.Enabled = false end)
 end
-end)
 end)
 
 task.spawn(function()
@@ -248,7 +246,7 @@ L.Changed:Connect(function(prop)
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-        pcall(function() L.FogEnd = 10000000 end) 
+    pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -264,7 +262,7 @@ for i, v in pairs(L:GetDescendants()) do
 end)
 
 task.spawn(function()
-for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+for i, v in pairs(game:GetDescendants()) do
 	if v:IsA("Model") then 
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
@@ -307,7 +305,7 @@ pcall(function() userSettings.GraphicsQualityLevel = 1 end)
 pcall(function() userSettings.SavedQualityLevel = "1" end)
 
 task.spawn(function()
-	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+	for i, v in pairs(game:GetDescendants()) do
 		if v:IsA("BasePart") then
 		    pcall(function() v.CastShadow = false end)
 		end
@@ -315,7 +313,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+	for i, v in pairs(game:GetDescendants()) do
 		if v:IsA("BasePart") and v.Material == "Plastic" then
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() v.CastShadow = false end)
@@ -324,7 +322,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
+	for i, v in pairs(game:GetDescendants()) do
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") or v:IsA("Sparkles") then
 			pcall(function() v.Enabled = false end)
 		end
@@ -343,11 +341,11 @@ for i, v in pairs(c:GetDescendants()) do
     end
     
     if obj:IsA("MeshPart") then
-        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
+        pcall(function() sethiddenproperty(obj, "RenderFidelityReplicate", "Performance") end)
     end
 elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
     obj.Enabled = false
-elseif obj:IsA("Model”) then
+elseif obj:IsA("Model") then
     obj.LevelOfDetail = "Disabled"
 end
 end
@@ -376,11 +374,11 @@ if obj:IsA("BasePart") then
     end
     
     if obj:IsA("MeshPart") then
-        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
+        pcall(function() sethiddenproperty(obj, "RenderFidelityReplicate", "Performance") end)
     end
 elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
     obj.Enabled = false
-elseif obj:IsA("Model”) then
+elseif obj:IsA("Model") then
     obj.LevelOfDetail = "Disabled"
 end
 end
