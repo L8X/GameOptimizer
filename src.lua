@@ -372,5 +372,5 @@ local function OnDescendantAdded(obj)
 end
 
 W.DescendantAdded:Connect(function(v)
-task.spawn(OnDescendantAdded, v)
+OnDescendantAdded(v)
 end)
