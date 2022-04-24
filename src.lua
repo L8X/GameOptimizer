@@ -275,6 +275,18 @@ end)
 
 task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
+	if v:IsA("PostEffect") then
+	v.Changed:Connect(function(prop)
+	if prop == "Enabled" then
+	pcall(function() v.Enabled = false end)
+	end
+	end)
+	end
+    end
+end)
+
+task.spawn(function()
+for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
 	   pcall(function() v:Remove() end)
 	   pcall(function() v:Destroy() end)
@@ -331,7 +343,7 @@ for i, v in pairs(c:GetDescendants()) do
     end
     
     if obj:IsA("MeshPart") then
-        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance") -- this won’t generate a render fidelity mesh at runtime dude lol.
+        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
     end
 elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
     obj.Enabled = false
@@ -343,6 +355,18 @@ end)
 end)
 end)
 	
+L.ChildAdded:Connect(function()
+for i, v in pairs(L:GetDescendants()) do
+	if v:IsA("PostEffect") then
+	v.Changed:Connect(function(prop)
+	if prop == "Enabled" then
+	pcall(function() v.Enabled = false end)
+	end
+	end)
+	end
+    end
+end)
+	
 local function OnDescendantAdded(obj)
 if obj:IsA("BasePart") then
     obj.CastShadow = false
@@ -352,7 +376,7 @@ if obj:IsA("BasePart") then
     end
     
     if obj:IsA("MeshPart") then
-        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance") -- this won’t generate a render fidelity mesh at runtime dude lol.
+        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
     end
 elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
     obj.Enabled = false
