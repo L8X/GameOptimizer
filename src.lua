@@ -251,7 +251,7 @@ L.Changed:Connect(function(prop)
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-    pcall(function() L.FogEnd = 10000000 end) 
+        pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -325,50 +325,44 @@ end)
 
 task.spawn(function()
 P.PlayerAdded:Connect(function(p)
-	p.CharacterAdded:Connect(function(c)
-		for i, v in pairs(c:GetDescendants()) do
-		if v:IsA("BasePart") then
-			pcall(function() v.CastShadow = false end)
-		end
-		if v:IsA("BasePart") and v.Material == "Plastic" then
-			pcall(function() v.Material = "SmoothPlastic" end)
-			pcall(function() obj.CastShadow = false end)
-	        end
-		if v:IsA("MeshPart") then
-		    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
-		    pcall(function() obj.CastShadow = false end)
-		end
-		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
-		   pcall(function() v.Enabled = false end)
-	        end
-		if v:IsA("Model") then 
-	          pcall(function() v.LevelOfDetail = "Disabled" end)
-	          pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
-	        end
-	end
+p.CharacterAdded:Connect(function(c)
+for i, v in pairs(c:GetDescendants()) do
+	if obj:IsA("BasePart") then
+    obj.CastShadow = false
+    
+    if obj.Material.Name == "Plastic" then
+        obj.Material = "SmoothPlastic"
+    end
+    
+    if obj:IsA("MeshPart") then
+        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance") -- this won’t generate a render fidelity mesh at runtime dude lol.
+    end
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
+    obj.Enabled = false
+elseif obj:IsA("Model”) then
+    obj.LevelOfDetail = "Disabled"
+end
+end
 end)
 end)
 end)
 	
 local function OnDescendantAdded(obj)
-	if obj:IsA("BasePart") then
-		pcall(function() obj.CastShadow = false end)
-	end
-	if obj:IsA("BasePart") and obj.Material == "Plastic" then
-		pcall(function() obj.Material = "SmoothPlastic" end)
-		pcall(function() obj.CastShadow = false end)
-	end
-	if obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
-		pcall(function() obj.Enabled = false end)
-	end
-	if obj:IsA("MeshPart") then
-	    pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
-	    pcall(function() obj.CastShadow = false end)
-	end
-	if obj:IsA("Model") then 
-	   pcall(function() v.LevelOfDetail = "Disabled" end)
-	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
-	end
+if obj:IsA("BasePart") then
+    obj.CastShadow = false
+    
+    if obj.Material.Name == "Plastic" then
+        obj.Material = "SmoothPlastic"
+    end
+    
+    if obj:IsA("MeshPart") then
+        pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance") -- this won’t generate a render fidelity mesh at runtime dude lol.
+    end
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
+    obj.Enabled = false
+elseif obj:IsA("Model”) then
+    obj.LevelOfDetail = "Disabled"
+end
 end
 
 W.DescendantAdded:Connect(function(v)
