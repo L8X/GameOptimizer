@@ -343,7 +343,7 @@ for i, v in pairs(c:GetDescendants()) do
     if obj:IsA("MeshPart") then
         pcall(function() sethiddenproperty(obj, "RenderFidelityReplicate", "Performance") end)
     end
-elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or obj:IsA("Sparkles") then
     obj.Enabled = false
 elseif obj:IsA("Model") then
     obj.LevelOfDetail = "Disabled"
@@ -376,7 +376,7 @@ if obj:IsA("BasePart") then
     if obj:IsA("MeshPart") then
         pcall(function() sethiddenproperty(obj, "RenderFidelityReplicate", "Performance") end)
     end
-elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or obj:IsA("Sparkles") then
     obj.Enabled = false
 elseif obj:IsA("Model") then
     obj.LevelOfDetail = "Disabled"
