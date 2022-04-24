@@ -205,7 +205,7 @@ task.spawn(function()
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-    pcall(function() L.FogEnd = 10000000 end) 
+        pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -234,16 +234,13 @@ pcall(function() T.Decoration = false end)
 pcall(function() sethiddenproperty(T, "Decoration", false) end)
 end)
 
-task.spawn(function()
 L.ChildAdded:Connect(function(v)
 if v:IsA("PostEffect") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)
 pcall(function() v.Enabled = false end)
 end
 end)
-end)
 		
-task.spawn(function()
 L.Changed:Connect(function(prop)
 	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" then 
 	pcall(function() L.Outlines = false end)
@@ -256,7 +253,6 @@ L.Changed:Connect(function(prop)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
 	end
-    end)
 end)
 
 task.spawn(function()
