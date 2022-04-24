@@ -371,6 +371,6 @@ local function OnDescendantAdded(obj)
 	end
 end
 
-game.DescendantAdded:Connect(function(v)
+W.DescendantAdded:Connect(function(v)
 task.spawn(OnDescendantAdded, v)
 end)
