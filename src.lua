@@ -325,7 +325,7 @@ end)
 
 task.spawn(function()
 	for i, v in pairs(getinstances and getinstances() or game:GetDescendants()) do
-		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") then
+		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") or v:IsA("Sparkles") then
 			pcall(function() v.Enabled = false end)
 		end
 	end
@@ -345,7 +345,7 @@ for i, v in pairs(c:GetDescendants()) do
     if obj:IsA("MeshPart") then
         pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
     end
-elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
     obj.Enabled = false
 elseif obj:IsA("Model”) then
     obj.LevelOfDetail = "Disabled"
@@ -378,7 +378,7 @@ if obj:IsA("BasePart") then
     if obj:IsA("MeshPart") then
         pcall(sethiddenproperty, obj, "RenderFidelityReplicate", "Performance")
     end
-elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") then
+elseif obj:IsA("ParticleEmitter") or obj:IsA("Fire") or obj:IsA("Beam") or obj:IsA("Smoke") or v:IsA("Sparkles") then
     obj.Enabled = false
 elseif obj:IsA("Model”) then
     obj.LevelOfDetail = "Disabled"
