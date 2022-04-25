@@ -24,7 +24,10 @@ end
 
 task.spawn(function()
 if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash fix
---pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) -- Using manual checks now for this 
+--pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) -- Using manual checks now for this
+pcall(function() setfflag("UserFixMouseCapture", true) end)
+pcall(function() setfflag("UserFixChatWindowHoverOver", true) end)
+pcall(function() setfflag("UserAtomicCharacterSounds", true) end)
 pcall(function() setfflag("WindowsUseHardwareCursor", true) end)
 pcall(function() setfflag("EngineHardwareCursorSupport", true) end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
@@ -84,6 +87,9 @@ end)
 task.spawn(function()
 if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash fix
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this 
+pcall(function() setfflag("UserFixMouseCapture", "true") end)
+pcall(function() setfflag("UserFixChatWindowHoverOver", "true") end)
+pcall(function() setfflag("UserAtomicCharacterSounds", "true") end)
 pcall(function() setfflag("WindowsUseHardwareCursor", "true") end)
 pcall(function() setfflag("EngineHardwareCursorSupport", "true") end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
