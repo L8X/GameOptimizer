@@ -219,7 +219,7 @@ task.spawn(function()
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-    pcall(function() L.FogEnd = 10000000 end) 
+        pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -301,7 +301,7 @@ task.spawn(function()
 for i, v in pairs(L:GetDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
 	   pcall(function() v:Remove() end)
-	   pcall(function() v:Destroy() end)
+	   --pcall(function() v:Destroy() end)
 	end
     end
 end)
@@ -315,8 +315,8 @@ pcall(function() Rendering.MeshCacheSize = tonumber(999999999) end)
 pcall(function() Rendering.FrameRateManager = "On" end)
 pcall(function() Rendering.ExportMergeByMaterial = true end)
 pcall(function() Rendering.EnableFRM = true end)
-pcall(function() userSettings.GraphicsQualityLevel = 1 end)
-pcall(function() userSettings.SavedQualityLevel = "1" end)
+pcall(function() userSettings.GraphicsQualityLevel = 0 end)
+pcall(function() userSettings.SavedQualityLevel = "0" end)
 
 task.spawn(function()
 	for i, v in pairs(game:GetDescendants()) do
