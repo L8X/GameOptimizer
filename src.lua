@@ -78,7 +78,7 @@ pcall(function() setfflag("RigidBodyLazyUpdating", true) end)
 pcall(function() setfflag("OptimizeNumUpdateEntityCalls7", true) end)
 pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", true) end)
 pcall(function() setfflag("EnableBackgroundModeWhenInactive", true) end) -- Sometimes breaks Voice Chat after a while
-pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", 100) end)
+pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", 10000) end)
 pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", true) end)
 pcall(function() setfflag("DynamicallyMoveSoundStorageLocationOnMemoryNotification", true) end)
 pcall(function() setfflag("TryCacheAndReuseVideoAssets", true) end)
