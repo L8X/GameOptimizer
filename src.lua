@@ -244,7 +244,7 @@ task.spawn(function()
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
-	pcall(function() L.ShadowSoftness = 1 end)
+	pcall(function() L.ShadowSoftness = 0 end)
 end)
 
 task.spawn(function()
