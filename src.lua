@@ -175,11 +175,27 @@ local cloneref = cloneref or function(ref)
     return ref
 end
 
+local function GetGameDescendants()
+if getdescendants then
+return getdescendants(game)
+else
+return game:GetDescendants()
+end
+end
+
 local L = cloneref(game:GetService("Lighting"))
 local P = cloneref(game:GetService("Players"))
 local W = cloneref(game:GetService("Workspace"))
 local T = cloneref(W.Terrain)
 local C = T:FindFirstChildOfClass("Clouds")
+
+local function GetLightingDescendants()
+if getdescendants then
+return getdescendants(L)
+else
+return L:GetDescendants()
+end
+end
 
 --- mhm... i liek workspace properties ---
 
@@ -206,7 +222,7 @@ end)
 
 task.spawn(function()
 pcall(function()
-for i, v in pairs(game:GetDescendants()) do
+for i, v in pairs(GetGameDescendants()) do
 	if v:IsA("MeshPart") then
 	   pcall(function() sethiddenproperty(v, "RenderFidelityReplicate", Enum.RenderFidelity.Performance) end) --- HAHAHAH, I HAVE FOUND THE SECRET!
            pcall(function() v.CastShadow = false end)
@@ -256,13 +272,13 @@ end
 end)
 		
 L.Changed:Connect(function(prop)
-	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" then 
+	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" or prop == "ShadowSoftness" or prop == "ExposureCompensation" then 
 	pcall(function() L.Outlines = false end)
 	pcall(function() L.Brightness = 2 end)
 	pcall(function() L.GlobalShadows = false end)
 	pcall(function() L.EnvironmentDiffuseScale = 0 end)
 	pcall(function() L.EnvironmentSpecularScale = 0 end)
-    pcall(function() L.FogEnd = 10000000 end) 
+        pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 1 end)
@@ -270,7 +286,7 @@ L.Changed:Connect(function(prop)
 end)
 
 task.spawn(function()
-for i, v in pairs(L:GetDescendants()) do
+for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("PostEffect") then 
 	   pcall(function() v.Enabled = false end)
 	end
@@ -278,7 +294,7 @@ for i, v in pairs(L:GetDescendants()) do
 end)
 
 task.spawn(function()
-for i, v in pairs(game:GetDescendants()) do
+for i, v in pairs(GetGameDescendants()) do
 	if v:IsA("Model") then 
 	   pcall(function() v.LevelOfDetail = "Disabled" end)
 	   pcall(function() sethiddenproperty(v, "LevelOfDetail", "Disabled") end)
@@ -288,7 +304,7 @@ end)
 
 
 task.spawn(function()
-for i, v in pairs(L:GetDescendants()) do
+for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("PostEffect") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
@@ -300,7 +316,7 @@ for i, v in pairs(L:GetDescendants()) do
 end)
 
 task.spawn(function()
-for i, v in pairs(L:GetDescendants()) do
+for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
 	   pcall(function() v:Remove() end)
 	   --pcall(function() v:Destroy() end)
@@ -321,7 +337,7 @@ pcall(function() userSettings.GraphicsQualityLevel = 0 end)
 pcall(function() userSettings.SavedQualityLevel = "0" end)
 
 task.spawn(function()
-	for i, v in pairs(game:GetDescendants()) do
+	for i, v in pairs(GetGameDescendants()) do
 		if v:IsA("BasePart") then
 		    pcall(function() v.CastShadow = false end)
 		end
@@ -329,7 +345,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-	for i, v in pairs(game:GetDescendants()) do
+	for i, v in pairs(GetGameDescendants()) do
 		if v:IsA("BasePart") and v.Material == "Plastic" then
 			pcall(function() v.Material = "SmoothPlastic" end)
 			pcall(function() v.CastShadow = false end)
@@ -338,7 +354,7 @@ task.spawn(function()
 end)
 
 task.spawn(function()
-	for i, v in pairs(game:GetDescendants()) do
+	for i, v in pairs(GetGameDescendants()) do
 		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") or v:IsA("Sparkles") then
 			pcall(function() v.Enabled = false end)
 		end
@@ -370,7 +386,7 @@ end)
 end)
 	
 L.ChildAdded:Connect(function()
-for i, v in pairs(L:GetDescendants()) do
+for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("PostEffect") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
