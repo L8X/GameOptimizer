@@ -235,13 +235,13 @@ end)
 
 task.spawn(function()
 	pcall(function() L.Outlines = false end)
-	pcall(function() L.Brightness = 1 end)
+	pcall(function() L.Brightness = 2 end)
 	pcall(function() L.GlobalShadows = false end)
-	pcall(function() L.EnvironmentDiffuseScale = 0.5 end)
-	pcall(function() L.EnvironmentSpecularScale = 0.5 end)
+	pcall(function() L.EnvironmentDiffuseScale = 0 end)
+	pcall(function() L.EnvironmentSpecularScale = 0 end)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
-	pcall(function() L.ExposureCompensation = -0.5 end)
+	pcall(function() L.ExposureCompensation = -0.65 end)
 	pcall(function() L.ShadowSoftness = 0 end)
 end)
 
@@ -267,8 +267,8 @@ pcall(function() sethiddenproperty(T, "Decoration", false) end)
 end)
 
 L.ChildAdded:Connect(function(v)
-if v:IsA("PostEffect") then
---if v:IsA("DepthOfField") then
+--if v:IsA("PostEffect") then
+if v:IsA("DepthOfField") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)
 pcall(function() v.Enabled = false end)
 end
@@ -290,8 +290,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then 
-	--if v:IsA("DepthOfField") then
+	--if v:IsA("PostEffect") then 
+	if v:IsA("DepthOfField") then
 	   pcall(function() v.Enabled = false end)
 	end
     end
@@ -309,8 +309,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then
-        --if v:IsA("DepthOfField") then
+	--if v:IsA("PostEffect") then
+        if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
@@ -323,7 +323,7 @@ end)
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
-	   --pcall(function() v:Remove() end) -- potential issue causer on dollhouse roleplay andothers, temporarily disabled
+	   pcall(function() v:Remove() end)
 	   --pcall(function() v:Destroy() end)
 	end
     end
@@ -394,8 +394,8 @@ end)
 	
 L.ChildAdded:Connect(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then
-	--if v:IsA("DepthOfField") then
+	--if v:IsA("PostEffect") then
+	if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
