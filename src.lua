@@ -269,7 +269,8 @@ pcall(function() sethiddenproperty(T, "Decoration", false) end)
 end)
 
 L.ChildAdded:Connect(function(v)
-if v:IsA("PostEffect") then
+--if v:IsA("PostEffect") then
+if v:IsA("DepthOfField") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)
 pcall(function() v.Enabled = false end)
 end
@@ -291,7 +292,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then 
+	--if v:IsA("PostEffect") then 
+	if v:IsA("DepthOfField") then
 	   pcall(function() v.Enabled = false end)
 	end
     end
@@ -309,7 +311,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then
+	--if v:IsA("PostEffect") then
+        if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
@@ -391,7 +394,8 @@ end)
 	
 L.ChildAdded:Connect(function()
 for i, v in pairs(GetLightingDescendants()) do
-	if v:IsA("PostEffect") then
+	--if v:IsA("PostEffect") then
+	if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
