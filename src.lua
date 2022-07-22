@@ -169,8 +169,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-repeat wait() until game:IsLoaded()
-
 local Rendering = settings().Rendering
 local Diagnostics = settings().Diagnostics
 local userSettings = UserSettings():GetService("UserGameSettings")
