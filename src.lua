@@ -405,7 +405,7 @@ local function OnDescendantAdded(obj)
 if obj:IsA("BasePart") then
     obj.CastShadow = false
     
-    if obj.Material.Name == "Plastic" then
+    if obj.Material == "Plastic" then
         obj.Material = "SmoothPlastic"
     end
     
