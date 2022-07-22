@@ -237,13 +237,13 @@ end)
 
 task.spawn(function()
 	pcall(function() L.Outlines = false end)
-	pcall(function() L.Brightness = 2 end)
+	pcall(function() L.Brightness = 1 end)
 	pcall(function() L.GlobalShadows = false end)
-	pcall(function() L.EnvironmentDiffuseScale = 0 end)
-	pcall(function() L.EnvironmentSpecularScale = 0 end)
+	pcall(function() L.EnvironmentDiffuseScale = 0.5 end)
+	pcall(function() L.EnvironmentSpecularScale = 0.5 end)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
-	pcall(function() L.ExposureCompensation = -0.65 end)
+	pcall(function() L.ExposureCompensation = -0.5 end)
 	pcall(function() L.ShadowSoftness = 0 end)
 end)
 
@@ -279,15 +279,15 @@ end)
 L.Changed:Connect(function(prop)
 	if prop == "Brightness" or prop == "GlobalShadows" or prop == "Outlines" or prop == "EnvironmentDiffuseScale" or prop == "EnvironmentSpecularScale" or prop == "FogEnd" or prop == "FogStart" or prop == "ShadowSoftness" or prop == "ExposureCompensation" then 
 	pcall(function() L.Outlines = false end)
-	pcall(function() L.Brightness = 2 end)
+	pcall(function() L.Brightness = 1 end)
 	pcall(function() L.GlobalShadows = false end)
-	pcall(function() L.EnvironmentDiffuseScale = 0 end)
-	pcall(function() L.EnvironmentSpecularScale = 0 end)
+	pcall(function() L.EnvironmentDiffuseScale = 0.5 end)
+	pcall(function() L.EnvironmentSpecularScale = 0.5 end)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
-	pcall(function() L.ExposureCompensation = -0.65 end)
+	pcall(function() L.ExposureCompensation = -0.5 end)
 	pcall(function() L.ShadowSoftness = 0 end)
-	end
+        end
 end)
 
 task.spawn(function()
@@ -325,7 +325,7 @@ end)
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
 	if v:IsA("Atmosphere") and game.PlaceId ~= 185655149 then -- Bloxburg gets stuck on the loading screen due to an infinite yield, so exclude it from this
-	   pcall(function() v:Remove() end)
+	   --pcall(function() v:Remove() end) -- potential issue causer on dollhouse roleplay andothers, temporarily disabled
 	   --pcall(function() v:Destroy() end)
 	end
     end
@@ -362,7 +362,8 @@ end)
 
 task.spawn(function()
 	for i, v in pairs(GetGameDescendants()) do
-		if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") or v:IsA("Sparkles") then
+		--if v:IsA("ParticleEmitter") or v:IsA("Fire") or v:IsA("Beam") or v:IsA("Smoke") or v:IsA("Sparkles") then
+		if v:IsA("ParticleEmitter") or v:IsA("Smoke") or v:IsA("Sparkles") then
 			pcall(function() v.Enabled = false end)
 		end
 	end
