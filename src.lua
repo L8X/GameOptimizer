@@ -27,10 +27,10 @@ if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash f
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", true) end) -- Using manual checks now for this
 pcall(function() setfflag("TweenServiceOnStepped", true) end)
 pcall(function() setfflag("TweenServiceFixPathologicalCase", true) end)
---pcall(function() setfflag("UserFixMouseCapture", true) end)
---pcall(function() setfflag("UserHandleChatHotKeyWithContextActionService", true) end)
---pcall(function() setfflag("UserFixChatWindowHoverOver", true) end)
---pcall(function() setfflag("UserAtomicCharacterSounds2", true) end)
+--pcall(function() setfflag("UserFixMouseCapture", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("UserHandleChatHotKeyWithContextActionService", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("UserFixChatWindowHoverOver", true) end) -- potential issue causer, temporarily disabled
+pcall(function() setfflag("UserAtomicCharacterSounds2", true) end)
 pcall(function() setfflag("WindowsUseHardwareCursor", true) end)
 pcall(function() setfflag("EngineHardwareCursorSupport", true) end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", true) end)
@@ -65,21 +65,21 @@ pcall(function() setfflag("RenderEnableSurfaceShadows", false) end)
 pcall(function() setfflag("RenderShadowUseLastLOD", true) end)
 pcall(function() setfflag("RenderLodShadows", false) end)
 pcall(function() setfflag("RenderShadowUseHQLOD", false) end)	
---pcall(function() setfflag("HumanoidParallelUseManager4", true) end)
---pcall(function() setfflag("HumanoidParallelOnStep", true) end)
---pcall(function() setfflag("HumanoidParallelOnStep2", true) end)
---pcall(function() setfflag("HumanoidParallelFasterWakeUp", true) end)
---pcall(function() setfflag("HumanoidParallelFasterSetCollision", true) end)
---pcall(function() setfflag("HumanoidParallelSafeUnseat", true) end)
---pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", true) end)
---pcall(function() setfflag("HumanoidParallelFixTickleFloor", true) end)
---pcall(function() setfflag("HumanoidParallelFixTickleFloor2", true) end)
---pcall(function() setfflag("HumanoidDeferredSyncFunction5", true) end)
+--pcall(function() setfflag("HumanoidParallelUseManager4", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelOnStep", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelOnStep2", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFasterWakeUp", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFasterSetCollision", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelSafeUnseat", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFixTickleFloor", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFixTickleFloor2", true) end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidDeferredSyncFunction5", true) end) -- potential issue causer, temporarily disabled
 pcall(function() setfflag("OptimizeNumUpdateEntityCalls6", true) end)
 pcall(function() setfflag("AnimatorLodOptOutPhase", true) end)
---pcall(function() setfflag("RigidBodyLazyUpdating", true) end)
---pcall(function() setfflag("OptimizeNumUpdateEntityCalls7", true) end)
---pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", true) end)
+--pcall(function() setfflag("RigidBodyLazyUpdating", true) end) -- potential issue causer, temporarily disabled
+pcall(function() setfflag("OptimizeNumUpdateEntityCalls7", true) end)
+--pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", true) end) -- potential issue causer, temporarily disabled
 pcall(function() setfflag("EnableBackgroundModeWhenInactive", true) end) -- Sometimes breaks Voice Chat after a while
 pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", 10000) end)
 pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", true) end)
@@ -94,10 +94,10 @@ if not game:GetService("UserInputService").TouchEnabled then -- Arceus X crash f
 --pcall(function() setfflag("DebugRenderForceTechnologyVoxel", "true") end) -- Using manual checks now for this
 pcall(function() setfflag("TweenServiceOnStepped", "true") end)
 pcall(function() setfflag("TweenServiceFixPathologicalCase", "true") end)
---pcall(function() setfflag("UserFixMouseCapture", "true") end)
---pcall(function() setfflag("UserHandleChatHotKeyWithContextActionService", "true") end)
---pcall(function() setfflag("UserFixChatWindowHoverOver", "true") end)
---pcall(function() setfflag("UserAtomicCharacterSounds2", "true") end)
+--pcall(function() setfflag("UserFixMouseCapture", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("UserHandleChatHotKeyWithContextActionService", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("UserFixChatWindowHoverOver", "true") end) -- potential issue causer, temporarily disabled
+pcall(function() setfflag("UserAtomicCharacterSounds2", "true") end)
 pcall(function() setfflag("WindowsUseHardwareCursor", "true") end)
 pcall(function() setfflag("EngineHardwareCursorSupport", "true") end)
 pcall(function() setfflag("ThrottleLightGridUpdate3", "true") end)
@@ -132,21 +132,21 @@ pcall(function() setfflag("RenderEnableSurfaceShadows", "false") end)
 pcall(function() setfflag("RenderShadowUseLastLOD", "true") end)
 pcall(function() setfflag("RenderLodShadows", "false") end)
 pcall(function() setfflag("RenderShadowUseHQLOD", "false") end)
---pcall(function() setfflag("HumanoidParallelUseManager4", "true") end)
---pcall(function() setfflag("HumanoidParallelOnStep", "true") end)
---pcall(function() setfflag("HumanoidParallelOnStep2", "true") end)
---pcall(function() setfflag("HumanoidParallelFasterWakeUp", "true") end)
---pcall(function() setfflag("HumanoidParallelFasterSetCollision", "true") end)
---pcall(function() setfflag("HumanoidParallelSafeUnseat", "true") end)
---pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", "true") end)
---pcall(function() setfflag("HumanoidParallelFixTickleFloor", "true") end)
---pcall(function() setfflag("HumanoidParallelFixTickleFloor2", "true") end)
---pcall(function() setfflag("HumanoidDeferredSyncFunction5", "true") end)
---pcall(function() setfflag("OptimizeNumUpdateEntityCalls6", "true") end)	
+--pcall(function() setfflag("HumanoidParallelUseManager4", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelOnStep", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelOnStep2", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFasterWakeUp", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFasterSetCollision", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelSafeUnseat", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelSafeCofmUpdate", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFixTickleFloor", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidParallelFixTickleFloor2", "true") end) -- potential issue causer, temporarily disabled
+--pcall(function() setfflag("HumanoidDeferredSyncFunction5", "true") end) -- potential issue causer, temporarily disabled
+pcall(function() setfflag("OptimizeNumUpdateEntityCalls6", "true") end)	
 pcall(function() setfflag("AnimatorLodOptOutPhase", "true") end)
---pcall(function() setfflag("RigidBodyLazyUpdating", "true") end)
+--pcall(function() setfflag("RigidBodyLazyUpdating", "true") end) -- potential issue causer, temporarily disabled
 pcall(function() setfflag("OptimizeNumUpdateEntityCalls7", "true") end)
---pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", "true") end)
+--pcall(function() setfflag("HumanoidOnlySetCollisionsOnStateChangeDefaultIsEnabled", "true") end) -- potential issue causer, temporarily disabled
 pcall(function() setfflag("EnableBackgroundModeWhenInactive", "true") end)  -- Sometimes breaks Voice Chat after a while
 pcall(function() setfint("RequestingBackgroundExecutionTimeRollout", "100") end)
 pcall(function() setfflag("DeliverLowMemoryWarningsViaPolling", "true") end)
@@ -208,16 +208,16 @@ pcall(function() sethiddenproperty(W, "LevelOfDetail", "Disabled") end)
 pcall(function() sethiddenproperty(W, "ClientAnimatorThrottling", "Enabled") end)
 pcall(function() sethiddenproperty(W, "InterpolationThrottling", "Enabled") end)
 pcall(function() sethiddenproperty(W, "MeshPartHeadsAndAccessories", "Disabled") end)
---pcall(function() sethiddenproperty(W, "HumanoidOnlySetCollisionsOnStateChange", "Enabled") end)
+--pcall(function() sethiddenproperty(W, "HumanoidOnlySetCollisionsOnStateChange", "Enabled") end) -- potential issue causer, temporarily disabled
 end)
 
 task.spawn(function()
 pcall(function() W.LevelOfDetail = "Disabled" end)
 pcall(function() W.ClientAnimatorThrottling = "Enabled" end)
 pcall(function() W.InterpolationThrottling = "Enabled" end)
---pcall(function() W.HumanoidOnlySetCollisionsOnStateChange = "Enabled" end)
+--pcall(function() W.HumanoidOnlySetCollisionsOnStateChange = "Enabled" end) -- potential issue causer, temporarily disabled
 pcall(function() W:SetMeshPartHeadsAndAccessories(false) end)
---pcall(function() W:SetPhysicsThrottleEnabled(true) end)
+--pcall(function() W:SetPhysicsThrottleEnabled(true) end) -- potential issue causer, temporarily disabled
 end)
 
 task.spawn(function()
@@ -269,8 +269,8 @@ pcall(function() sethiddenproperty(T, "Decoration", false) end)
 end)
 
 L.ChildAdded:Connect(function(v)
---if v:IsA("PostEffect") then
-if v:IsA("DepthOfField") then
+if v:IsA("PostEffect") then
+--if v:IsA("DepthOfField") then
 pcall(function() sethiddenproperty(v, "Enabled", false)	end)
 pcall(function() v.Enabled = false end)
 end
@@ -286,14 +286,14 @@ L.Changed:Connect(function(prop)
         pcall(function() L.FogEnd = 10000000 end) 
 	pcall(function() L.FogStart = 0 end)
 	pcall(function() L.ExposureCompensation = -0.65 end)
-	pcall(function() L.ShadowSoftness = 1 end)
+	pcall(function() L.ShadowSoftness = 0 end)
 	end
 end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	--if v:IsA("PostEffect") then 
-	if v:IsA("DepthOfField") then
+	if v:IsA("PostEffect") then 
+	--if v:IsA("DepthOfField") then
 	   pcall(function() v.Enabled = false end)
 	end
     end
@@ -311,8 +311,8 @@ end)
 
 task.spawn(function()
 for i, v in pairs(GetLightingDescendants()) do
-	--if v:IsA("PostEffect") then
-        if v:IsA("DepthOfField") then
+	if v:IsA("PostEffect") then
+        --if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
@@ -394,8 +394,8 @@ end)
 	
 L.ChildAdded:Connect(function()
 for i, v in pairs(GetLightingDescendants()) do
-	--if v:IsA("PostEffect") then
-	if v:IsA("DepthOfField") then
+	if v:IsA("PostEffect") then
+	--if v:IsA("DepthOfField") then
 	v.Changed:Connect(function(prop)
 	if prop == "Enabled" then
 	pcall(function() v.Enabled = false end)
