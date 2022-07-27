@@ -9,8 +9,8 @@ Load using: loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L8X/
 
 Before:
 
-<img src="https://raw.githubusercontent.com/L8X/GameOptimizer/main/before.jpg"</img> 
+<img src="https://raw.githubusercontent.com/L8X/GameOptimizer/main/before.jpg"> 
 
 After:
 
-<img src="https://raw.githubusercontent.com/L8X/GameOptimizer/main/after.png"</img> 
+<img src="https://raw.githubusercontent.com/L8X/GameOptimizer/main/after.png"> 
