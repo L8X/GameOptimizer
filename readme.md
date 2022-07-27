@@ -1,6 +1,6 @@
 # GameOptimizer
 
-Optimizes your Roblox Game session for best FPS and minimal visual bugs.
+Optimizes your Roblox Game Session for best FPS and minimal visual bugs.
 
 Works best in your autoexec (autoexecute) folder!
 
