@@ -4,8 +4,9 @@ Optimizes your Roblox Game Session for best FPS and minimal visual bugs.
 
 Works best in your autoexec (autoexecute) folder!
 
-Load using: loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L8X/GameOptimizer/main/src.lua", false))()
+# How to Use
 
+Load using: loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L8X/GameOptimizer/main/src.lua", false))()
 
 # Visual Differences Example
 
