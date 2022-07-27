@@ -7,7 +7,7 @@ Optimizes your Roblox Game Session for best FPS and minimal visual bugs.
 Load using: 
 
 ```lua
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L8X/GameOptimizer/main/src.lua", false))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/L8X/GameOptimizer/main/src.lua", false))()
 ```
 
 Works best in your autoexec (autoexecute) folder!
